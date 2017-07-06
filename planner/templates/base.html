@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Wedding Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <svg class="shake-little" id="clickable" viewBox="0 0 2000 300">
+
+                <symbol id="s-text">
+
+                    <text text-anchor="middle" x="50%" y="40%">Wedding Planner</text>
+
+            	</symbol>
+                <symbol id="s-text-2">
+                    <text id="smaller" text-anchor="middle" x="50%" y="80%">Lasciate ogni speranza, voi ch'entrate</text>
+                </symbol>
+
+
+	            <g class = "g-ants">
+		            <use xlink:href="#s-text" class="text-copy"></use>
+            		<use xlink:href="#s-text" class="text-copy"></use>
+            		<use xlink:href="#s-text" class="text-copy"></use>
+            		<use xlink:href="#s-text" class="text-copy"></use>
+            		<use xlink:href="#s-text" class="text-copy"></use>
+            	</g>
+                <g class = "g-ants">
+            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
+            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
+            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
+            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
+            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
+            	</g>
+            </svg>
+        </div>
+        <div class="row">
+            {%csrf_token%}
+            {%block content%}
+            {%endblock%}
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js">
+    </script>
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+    </script>
+
+    <script src="{% static "js/app.js" %}">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+</body>
+</html>
