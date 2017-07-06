@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <a href="/menu">
+        <button class="btn btn-default" type="button">
+        You are already logged in as {{ user.username }}... better go to menu...
+        </button>
+    </a>
+
+    {% else %}
+
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-default" type="submit">Login</button>
+    </form>
+    {% endif %}
+{% endblock %}
