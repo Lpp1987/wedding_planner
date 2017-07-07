@@ -25,4 +25,14 @@ $(document).ready(function(){
     selectUser.html(""); // wyczyszczenie selecta z option
     selectUser.append("<option selected value='"+currUser+"'></option>"); // dodanie aktywnego użytkownika do option
 
+    let weddText = $("#id_wedding option").filter(function(){
+        return $(this).text() === currUser;
+    }).first().attr("value")
+
+    let selectWedding = $("#id_wedding");
+    let selectWeddingParent = $(selectWedding.parent());
+    selectWeddingParent.hide();
+    selectWedding.html("");
+    selectWedding.append("<option selected value='"+weddText+"'></option>");
+
 });

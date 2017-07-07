@@ -4,7 +4,7 @@
 
     {% if user.is_authenticated %}
     <a href="/menu">
-        <button class="btn btn-default" type="button">
+        <button class="btn btn-default btn-block" type="button">
         You are already logged in as {{ user.username }}... better go to menu...
         </button>
     </a>
@@ -17,5 +17,11 @@
         {{ form.as_p }}
         <button class="btn btn-default" type="submit">Login</button>
     </form>
+    <br>
+    <h2>Create account</h2>
+    <a href="/signup">
+        <button class="btn btn-default" type="button" name="button">Register</button>
+    </a>
+
     {% endif %}
 {% endblock %}

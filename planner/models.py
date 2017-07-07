@@ -5,19 +5,10 @@ from django.contrib.auth.models import User
 
 
 class Wedding(models.Model):
-    user = models.ForeignKey(User, null=False)
-    WeddingHall = models.ForeignKey("WeddingHall")
-    Car = models.ForeignKey("Car")
-    Photographer = models.ForeignKey("Photographer")
-    Band = models.ForeignKey("Band")
-    WeddingRings = models.ForeignKey("WeddingRings")
-    AlcoholBeverages = models.ForeignKey("AlcoholBeverages")
-    NonAlcoholBeverages = models.ForeignKey("NonAlcoholBeverages")
-    Church = models.ForeignKey("Church")
-    Other = models.ForeignKey("Other")
+    user = models.OneToOneField(User, null=False)
 
     def __str__(self):
-        return "user: {} | wedding: {}".format(self.user, self.pk)
+        return "{}".format(self.user.pk)
 
 
 class WeddingHall(models.Model):
@@ -27,9 +18,10 @@ class WeddingHall(models.Model):
     paid = models.FloatField(null=True)
     done = models.BooleanField(null=False, default=False)
     user = models.ForeignKey(User, null=False)
+    wedding = models.ForeignKey(Wedding, null=False)
 
     def __str__(self):
-        return "user: {} name: {}".format(self.user, self.name)
+        return "wedding: {} name: {}".format(self.wedding, self.name)
 
 
 class Car(models.Model):
@@ -39,9 +31,10 @@ class Car(models.Model):
     paid = models.FloatField(null=True)
     done = models.BooleanField(null=False, default=False)
     user = models.ForeignKey(User, null=False)
+    wedding = models.ForeignKey(Wedding, null=False)
 
     def __str__(self):
-        return "user: {} name: {}".format(self.user, self.name)
+        return "wedding: {} name: {}".format(self.wedding, self.name)
 
 
 class Photographer(models.Model):
@@ -51,9 +44,10 @@ class Photographer(models.Model):
     paid = models.FloatField(null=True)
     done = models.BooleanField(null=False, default=False)
     user = models.ForeignKey(User, null=False)
+    wedding = models.ForeignKey(Wedding, null=False)
 
     def __str__(self):
-        return "user: {} name: {}".format(self.user, self.name)
+        return "wedding: {} name: {}".format(self.wedding, self.name)
 
 
 class Band(models.Model):
@@ -63,9 +57,10 @@ class Band(models.Model):
     paid = models.FloatField(null=True)
     done = models.BooleanField(null=False, default=False)
     user = models.ForeignKey(User, null=False)
+    wedding = models.ForeignKey(Wedding, null=False)
 
     def __str__(self):
-        return "user: {} name: {}".format(self.user, self.name)
+        return "wedding: {} name: {}".format(self.wedding, self.name)
 
 
 class WeddingRings(models.Model):
@@ -75,9 +70,10 @@ class WeddingRings(models.Model):
     paid = models.FloatField(null=True)
     done = models.BooleanField(null=False, default=False)
     user = models.ForeignKey(User, null=False)
+    wedding = models.ForeignKey(Wedding, null=False)
 
     def __str__(self):
-        return "user: {} name: {}".format(self.user, self.name)
+        return "wedding: {} name: {}".format(self.wedding, self.name)
 
 
 class AlcoholBeverages(models.Model):
@@ -87,9 +83,10 @@ class AlcoholBeverages(models.Model):
     paid = models.FloatField(null=True)
     done = models.BooleanField(null=False, default=False)
     user = models.ForeignKey(User, null=False)
+    wedding = models.ForeignKey(Wedding, null=False)
 
     def __str__(self):
-        return "user: {} name: {}".format(self.user, self.name)
+        return "wedding: {} name: {}".format(self.wedding, self.name)
 
 
 class NonAlcoholBeverages(models.Model):
@@ -99,9 +96,10 @@ class NonAlcoholBeverages(models.Model):
     paid = models.FloatField(null=True)
     done = models.BooleanField(null=False, default=False)
     user = models.ForeignKey(User, null=False)
+    wedding = models.ForeignKey(Wedding, null=False)
 
     def __str__(self):
-        return "user: {} name: {}".format(self.user, self.name)
+        return "wedding: {} name: {}".format(self.wedding, self.name)
 
 
 class Church(models.Model):
@@ -111,9 +109,10 @@ class Church(models.Model):
     paid = models.FloatField(null=True)
     done = models.BooleanField(null=False, default=False)
     user = models.ForeignKey(User, null=False)
+    wedding = models.ForeignKey(Wedding, null=False)
 
     def __str__(self):
-        return "user: {} name: {}".format(self.user, self.name)
+        return "wedding: {} name: {}".format(self.wedding, self.name)
 
 
 class Other(models.Model):
@@ -123,6 +122,7 @@ class Other(models.Model):
     paid = models.FloatField(null=True)
     done = models.BooleanField(null=False, default=False)
     user = models.ForeignKey(User, null=False)
+    wedding = models.ForeignKey(Wedding, null=False)
 
     def __str__(self):
-        return "user: {} name: {}".format(self.user, self.name)
+        return "wedding: {} name: {}".format(self.wedding, self.name)

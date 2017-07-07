@@ -27,6 +27,7 @@ urlpatterns = [
 
     url(r'^base/$', BaseView.as_view()),
     url(r'^menu/$', MenuView.as_view()),
+
     url(r'^create/wedding-hall/', WeddingHallCreateView.as_view()),
     url(r'^create/car/', CarCreateView.as_view()),
     url(r'^create/photographer/', PhotographerCreateView.as_view()),
@@ -36,6 +37,9 @@ urlpatterns = [
     url(r'^create/non-alcohol-beverages/', NonAlcoholBeveragesCreateView.as_view()),
     url(r'^create/church/', ChurchCreateView.as_view()),
     url(r'^create/other/', OtherCreateView.as_view()),
+    url(r'^create/wedding/', WeddingCreateView.as_view()),
+
+    url(r'^wedding/', WeddingView.as_view()),
 
 
 

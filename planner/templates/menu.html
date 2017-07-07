@@ -3,49 +3,69 @@
 {% load static %}
 
 {%block content%}
-<p>{{user}}</p>
+
+{%if wedding != "NO-WEDDING"%}
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 style="text-align: center;">Wedding</h3>
+            <a href="/wedding/"><img class="img-rounded shake-little" width="950" height="300" src="{% static "img/curr-wedding.jpg" %}" alt="Wedding"></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>Wedding Hall</h3>
+            <a href="/create/wedding-hall/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/wedding-hall.jpg" %}" alt="Wedding Hall"></a>
+        </div>
+        <div class="col-lg-4">
+            <h3>Car</h3>
+            <a href="/create/car/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/car.jpg" %}" alt="Car"></a>
+        </div>
+        <div class="col-lg-4">
+            <h3>Photographer</h3>
+            <a href="/create/photographer/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/photographer.jpg" %}" alt="Photographer"></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>Band</h3>
+            <a href="/create/band/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/band.jpg" %}" alt="Band"></a>
+        </div>
+        <div class="col-lg-4">
+            <h3>Wedding Rings</h3>
+            <a href="/create/wedding-rings/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/wedding-rings.jpg" %}" alt="Wedding Rings"></a>
+        </div>
+        <div class="col-lg-4">
+            <h3>Alcohol Beverages</h3>
+            <a href="/create/alcohol-beverages/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/alcohol-beverages.jpg" %}" alt="Alcohol Beverages"></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>Non Alcohol Beverages</h3>
+            <a href="/create/non-alcohol-beverages/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/non-alcohol-beverages.png" %}" alt="Non Alcohol Beverages"></a>
+        </div>
+        <div class="col-lg-4">
+            <h3>Church</h3>
+            <a href="/create/church/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/church.jpg" %}" alt="Church"></a>
+        </div>
+        <div class="col-lg-4">
+            <h3>Other</h3>
+            <a href="/create/other/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/other.jpg" %}" alt="Other"></a>
+        </div>
+    </div>
+{%else%}
 <div class="row">
-    <div class="col-lg-4">
-        <h3>Wedding Hall</h3>
-        <a href="/create/wedding-hall/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/wedding-hall.jpg" %}" alt="Wedding Hall"></a>
+    <div class="col-lg2">
     </div>
-    <div class="col-lg-4">
-        <h3>Car</h3>
-        <a href="/create/car/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/car.jpg" %}" alt="Car"></a>
+    <div class="col-lg-8">
+        <h3 style="text-align: right;">Create new Wedding</h3>
+        <a href="/create/wedding/"><img class="img-rounded shake-little" width="900" height="300" src="{% static "img/new-wedding.jpg" %}" alt="New Wedding"></a>
     </div>
-    <div class="col-lg-4">
-        <h3>Photographer</h3>
-        <a href="/create/photographer/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/photographer.jpg" %}" alt="Photographer"></a>
+    <div class="col-lg-2">
     </div>
 </div>
-<div class="row">
-    <div class="col-lg-4">
-        <h3>Band</h3>
-        <a href="/create/band/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/band.jpg" %}" alt="Band"></a>
-    </div>
-    <div class="col-lg-4">
-        <h3>Wedding Rings</h3>
-        <a href="/create/wedding-rings/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/wedding-rings.jpg" %}" alt="Wedding Rings"></a>
-    </div>
-    <div class="col-lg-4">
-        <h3>Alcohol Beverages</h3>
-        <a href="/create/alcohol-beverages/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/alcohol-beverages.jpg" %}" alt="Alcohol Beverages"></a>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-4">
-        <h3>Non Alcohol Beverages</h3>
-        <a href="/create/non-alcohol-beverages/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/non-alcohol-beverages.png" %}" alt="Non Alcohol Beverages"></a>
-    </div>
-    <div class="col-lg-4">
-        <h3>Church</h3>
-        <a href="/create/church/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/church.jpg" %}" alt="Church"></a>
-    </div>
-    <div class="col-lg-4">
-        <h3>Other</h3>
-        <a href="/create/other/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/other.jpg" %}" alt="Other"></a>
-    </div>
-</div>
+{%endif%}
 
 
 

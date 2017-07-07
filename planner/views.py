@@ -1,4 +1,3 @@
-from django.contrib.auth.models import AnonymousUser
 from django.shortcuts import render, redirect
 from django.template.response import TemplateResponse
 from django.views import View
@@ -34,7 +33,14 @@ class BaseView(View):
 class MenuView(View):
 
     def get(self, request):
-        return TemplateResponse(request, "menu.html")
+        if not request.user.is_authenticated:
+            return redirect("/")
+        try:
+            wedding = Wedding.objects.get(user=request.user.pk)
+            ctx = {"wedding": wedding}
+        except:
+            ctx = {"wedding": "NO-WEDDING"}
+        return TemplateResponse(request, "menu.html", ctx)
 
 
 class WeddingHallCreateView(CreateView):
@@ -89,3 +95,18 @@ class OtherCreateView(CreateView):
     model = Other
     fields = "__all__"
     success_url = "/menu"
+
+
+class WeddingCreateView(CreateView):
+    model = Wedding
+    fields = "__all__"
+    success_url = "/menu"
+
+
+class WeddingView(View):
+
+    def get(self, request):
+        user = request.user.id
+        wedding = Wedding.objects.get(user=user)
+        ctx = {"wedding": wedding}
+        return TemplateResponse(request, "wedding.html", ctx)

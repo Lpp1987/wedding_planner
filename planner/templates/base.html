@@ -13,33 +13,39 @@
 <body>
     <div class="container">
         <div class="row">
-            <svg class="shake-little" id="clickable" viewBox="0 0 2000 300">
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-10">
+                <svg class="shake-little" id="clickable" viewBox="0 0 1900 300">
 
-                <symbol id="s-text">
+                    <symbol id="s-text">
 
-                    <text text-anchor="middle" x="50%" y="40%">Wedding Planner</text>
+                        <text text-anchor="middle" x="50%" y="40%">Wedding Planner</text>
 
-            	</symbol>
-                <symbol id="s-text-2">
-                    <text id="smaller" text-anchor="middle" x="50%" y="80%">Lasciate ogni speranza, voi ch'entrate</text>
-                </symbol>
+                    </symbol>
+                    <symbol id="s-text-2">
+                        <text id="smaller" text-anchor="middle" x="50%" y="80%">Lasciate ogni speranza, voi ch'entrate</text>
+                    </symbol>
 
 
-	            <g class = "g-ants">
-		            <use xlink:href="#s-text" class="text-copy"></use>
-            		<use xlink:href="#s-text" class="text-copy"></use>
-            		<use xlink:href="#s-text" class="text-copy"></use>
-            		<use xlink:href="#s-text" class="text-copy"></use>
-            		<use xlink:href="#s-text" class="text-copy"></use>
-            	</g>
-                <g class = "g-ants">
-            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
-            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
-            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
-            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
-            		<use xlink:href="#s-text-2" class="text-copy-2"></use>
-            	</g>
-            </svg>
+                    <g class = "g-ants">
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                    </g>
+                    <g class = "g-ants">
+                        <use xlink:href="#s-text-2" class="text-copy-2"></use>
+                        <use xlink:href="#s-text-2" class="text-copy-2"></use>
+                        <use xlink:href="#s-text-2" class="text-copy-2"></use>
+                        <use xlink:href="#s-text-2" class="text-copy-2"></use>
+                        <use xlink:href="#s-text-2" class="text-copy-2"></use>
+                    </g>
+                </svg>
+            </div>
+            <div class="col-lg-1">
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-1">
@@ -51,9 +57,11 @@
             </div>
             <div class="col-lg-1">
                 {% if user.is_authenticated %}
-                <a href="/logout"><button id="curr-user" class="btn btn-default" type="button" name="{{user.id}}">
+                <a href="/logout">
+                    <button id="curr-user" class="btn btn-default" type="button" name="{{user.id}}">
                     {{ user.username }} Logout
-                </button></a>
+                </button>
+            </a>
                 {% endif %}
             </div>
         </div>

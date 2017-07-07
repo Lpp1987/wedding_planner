@@ -4,6 +4,10 @@ label {
     display: block;
 }
 
+button {
+    width: 200px;
+}
+
 html,
 body {
     height: 100%;
@@ -11,7 +15,7 @@ body {
 }
 
 body {
-    background: #eeeeee;
+    background: #f7e7b4;
     font-family: Arial;
 }
 
