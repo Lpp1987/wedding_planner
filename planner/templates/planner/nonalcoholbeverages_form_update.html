@@ -4,8 +4,6 @@
 
 {%block content%}
 
-{{user.id}}
-
 <form class="form-inline" action="" method="post">
     {%csrf_token%}
     {{ form.as_p }}

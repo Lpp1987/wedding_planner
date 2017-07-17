@@ -6,7 +6,142 @@
 
 <div class="row">
     <div class="col-lg-12">
-
+        <table class="table-striped">
+            <tr style="height: 30px">
+                <th style="width: 175px">Category</th>
+                <th style="width: 250px">Name</th>
+                <th style="width: 150px">Cost</th>
+                <th style="width: 150px">Paid</th>
+                <th style="width: 150px">To Pay</th>
+                <th style="width: 50px">Done</th>
+            </tr>
+            <tr style="height: 30px">
+                <th>Wedding Hall</th>
+                <td>{{weddingHall.name}}</td>
+                <td>{{weddingHall.cost}}</td>
+                <td>{{weddingHall.paid}}</td>
+                <td>{{weddingHall.to_pay}}</td>
+                <td>
+                    {%if weddingHall.done == True%}
+                    <img src="{% static "img/checkbox.png" %}" alt="True">
+                    {%else%}
+                    <img src="{% static "img/checkbox-false.png" %}" alt="False">
+                    {%endif%}
+                </td>
+            </tr>
+            <tr style="height: 30px">
+                <th>Car</th>
+                <td>{{car.name}}</td>
+                <td>{{car.cost}}</td>
+                <td>{{car.paid}}</td>
+                <td>{{car.to_pay}}</td>
+                <td>
+                    {%if car.done == True%}
+                    <img src="{% static "img/checkbox.png" %}" alt="True">
+                    {%else%}
+                    <img src="{% static "img/checkbox-false.png" %}" alt="False">
+                    {%endif%}
+                </td>
+            </tr>
+            <tr style="height: 30px">
+                <th>Photographer</th>
+                <td>{{photographer.name}}</td>
+                <td>{{photographer.cost}}</td>
+                <td>{{photographer.paid}}</td>
+                <td>{{photographer.to_pay}}</td>
+                <td>
+                    {%if photographer.done == True%}
+                    <img src="{% static "img/checkbox.png" %}" alt="True">
+                    {%else%}
+                    <img src="{% static "img/checkbox-false.png" %}" alt="False">
+                    {%endif%}
+                </td>
+            </tr>
+            <tr style="height: 30px">
+                <th>Band</th>
+                <td>{{band.name}}</td>
+                <td>{{band.cost}}</td>
+                <td>{{band.paid}}</td>
+                <td>{{band.to_pay}}</td>
+                <td>
+                    {%if band.done == True%}
+                    <img src="{% static "img/checkbox.png" %}" alt="True">
+                    {%else%}
+                    <img src="{% static "img/checkbox-false.png" %}" alt="False">
+                    {%endif%}
+                </td>
+            </tr>
+            <tr style="height: 30px">
+                <th>Wedding Rings</th>
+                <td>{{weddingRings.name}}</td>
+                <td>{{weddingRings.cost}}</td>
+                <td>{{weddingRings.paid}}</td>
+                <td>{{weddingRings.to_pay}}</td>
+                <td>
+                    {%if weddingRings.done == True%}
+                    <img src="{% static "img/checkbox.png" %}" alt="True">
+                    {%else%}
+                    <img src="{% static "img/checkbox-false.png" %}" alt="False">
+                    {%endif%}
+                </td>
+            </tr>
+            <tr style="height: 30px">
+                <th>Alcohol Beverages</th>
+                <td>{{alcoholBeverages.name}}</td>
+                <td>{{alcoholBeverages.cost}}</td>
+                <td>{{alcoholBeverages.paid}}</td>
+                <td>{{alcoholBeverages.to_pay}}</td>
+                <td>
+                    {%if alcoholBeverages.done == True%}
+                    <img src="{% static "img/checkbox.png" %}" alt="True">
+                    {%else%}
+                    <img src="{% static "img/checkbox-false.png" %}" alt="False">
+                    {%endif%}
+                </td>
+            </tr>
+            <tr style="height: 30px">
+                <th>Non Alcohol Beverages</th>
+                <td>{{nonAlcoholBeverages.name}}</td>
+                <td>{{nonAlcoholBeverages.cost}}</td>
+                <td>{{nonAlcoholBeverages.paid}}</td>
+                <td>{{nonAlcoholBeverages.to_pay}}</td>
+                <td>
+                    {%if nonAlcoholBeverages.done == True%}
+                    <img src="{% static "img/checkbox.png" %}" alt="True">
+                    {%else%}
+                    <img src="{% static "img/checkbox-false.png" %}" alt="False">
+                    {%endif%}
+                </td>
+            </tr>
+            <tr style="height: 30px">
+                <th>Church</th>
+                <td>{{church.name}}</td>
+                <td>{{church.cost}}</td>
+                <td>{{church.paid}}</td>
+                <td>{{church.to_pay}}</td>
+                <td>
+                    {%if church.done == True%}
+                    <img src="{% static "img/checkbox.png" %}" alt="True">
+                    {%else%}
+                    <img src="{% static "img/checkbox-false.png" %}" alt="False">
+                    {%endif%}
+                </td>
+            </tr>
+            <tr style="height: 30px">
+                <th>Other</th>
+                <td>{{other.name}}</td>
+                <td>{{other.cost}}</td>
+                <td>{{other.paid}}</td>
+                <td>{{other.to_pay}}</td>
+                <td>
+                    {%if other.done == True%}
+                    <img src="{% static "img/checkbox.png" %}" alt="True">
+                    {%else%}
+                    <img src="{% static "img/checkbox-false.png" %}" alt="False">
+                    {%endif%}
+                </td>
+            </tr>
+        </table>
 
 
     </div>

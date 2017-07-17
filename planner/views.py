@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.template.response import TemplateResponse
 from django.views import View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -38,8 +38,63 @@ class MenuView(View):
         try:
             wedding = Wedding.objects.get(user=request.user.pk)
             ctx = {"wedding": wedding}
+            try:
+                weddingHall = WeddingHall.objects.get(wedding=wedding.pk)
+                ctx["weddingHall"] = weddingHall
+            except:
+                pass
+
+            try:
+                car = Car.objects.get(wedding=wedding.pk)
+                ctx["car"] = car
+            except:
+                pass
+
+            try:
+                photographer = Photographer.objects.get(wedding=wedding.pk)
+                ctx["photographer"] = photographer
+            except:
+                pass
+
+            try:
+                band = Band.objects.get(wedding=wedding.pk)
+                ctx["band"] = band
+            except:
+                pass
+
+            try:
+                weddingRings = WeddingRings.objects.get(wedding=wedding.pk)
+                ctx["weddingRings"] = weddingRings
+            except:
+                pass
+
+            try:
+                alcoholBeverages = AlcoholBeverages.objects.get(wedding=wedding.pk)
+                ctx["alcoholBeverages"] = alcoholBeverages
+            except:
+                pass
+
+            try:
+                nonAlcoholBeverages = NonAlcoholBeverages.objects.get(wedding=wedding.pk)
+                ctx["nonAlcoholBeverages"] = nonAlcoholBeverages
+            except:
+                pass
+
+            try:
+                church = Church.objects.get(wedding=wedding.pk)
+                ctx["church"] = church
+            except:
+                pass
+
+            try:
+                other = Other.objects.get(wedding=wedding.pk)
+                ctx["other"] = other
+            except:
+                pass
         except:
             ctx = {"wedding": "NO-WEDDING"}
+
+
         return TemplateResponse(request, "menu.html", ctx)
 
 
@@ -106,7 +161,124 @@ class WeddingCreateView(CreateView):
 class WeddingView(View):
 
     def get(self, request):
-        user = request.user.id
-        wedding = Wedding.objects.get(user=user)
+        wedding = Wedding.objects.get(user=request.user.pk)
         ctx = {"wedding": wedding}
+        try:
+            weddingHall = WeddingHall.objects.get(wedding=wedding.pk)
+            ctx["weddingHall"] = weddingHall
+        except:
+            pass
+
+        try:
+            car = Car.objects.get(wedding=wedding.pk)
+            ctx["car"] = car
+        except:
+            pass
+
+        try:
+            photographer = Photographer.objects.get(wedding=wedding.pk)
+            ctx["photographer"] = photographer
+        except:
+            pass
+
+        try:
+            band = Band.objects.get(wedding=wedding.pk)
+            ctx["band"] = band
+        except:
+            pass
+
+        try:
+            weddingRings = WeddingRings.objects.get(wedding=wedding.pk)
+            ctx["weddingRings"] = weddingRings
+        except:
+            pass
+
+        try:
+            alcoholBeverages = AlcoholBeverages.objects.get(wedding=wedding.pk)
+            ctx["alcoholBeverages"] = alcoholBeverages
+        except:
+            pass
+
+        try:
+            nonAlcoholBeverages = NonAlcoholBeverages.objects.get(
+                wedding=wedding.pk)
+            ctx["nonAlcoholBeverages"] = nonAlcoholBeverages
+        except:
+            pass
+
+        try:
+            church = Church.objects.get(wedding=wedding.pk)
+            ctx["church"] = church
+        except:
+            pass
+
+        try:
+            other = Other.objects.get(wedding=wedding.pk)
+            ctx["other"] = other
+        except:
+            pass
+
         return TemplateResponse(request, "wedding.html", ctx)
+
+
+class WeddingHallUpdateView(UpdateView):
+    model = WeddingHall
+    fields = "__all__"
+    template_name_suffix = "_form_update"
+    success_url = "/menu"
+
+
+class CarUpdateView(UpdateView):
+    model = Car
+    fields = "__all__"
+    template_name_suffix = "_form_update"
+    success_url = "/menu"
+
+
+class PhotographerUpdateView(UpdateView):
+    model = Photographer
+    fields = "__all__"
+    template_name_suffix = "_form_update"
+    success_url = "/menu"
+
+
+class BandUpdateView(UpdateView):
+    model = Band
+    fields = "__all__"
+    template_name_suffix = "_form_update"
+    success_url = "/menu"
+
+
+class WeddingRingsUpdateView(UpdateView):
+    model = WeddingRings
+    fields = "__all__"
+    template_name_suffix = "_form_update"
+    success_url = "/menu"
+
+
+class AlcoholBeveragesUpdateView(UpdateView):
+    model = AlcoholBeverages
+    fields = "__all__"
+    template_name_suffix = "_form_update"
+    success_url = "/menu"
+
+
+class NonAlcoholBeveragesUpdateView(UpdateView):
+    model = NonAlcoholBeverages
+    fields = "__all__"
+    template_name_suffix = "_form_update"
+    success_url = "/menu"
+
+
+class ChurchUpdateView(UpdateView):
+    model = Church
+    fields = "__all__"
+    template_name_suffix = "_form_update"
+    success_url = "/menu"
+
+
+class OtherUpdateView(UpdateView):
+    model = Other
+    fields = "__all__"
+    template_name_suffix = "_form_update"
+    success_url = "/menu"

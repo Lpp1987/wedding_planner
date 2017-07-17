@@ -41,6 +41,17 @@ urlpatterns = [
 
     url(r'^wedding/', WeddingView.as_view()),
 
+    url(r'update/wedding-hall/(?P<pk>(\d)+)', WeddingHallUpdateView.as_view()),
+    url(r'update/car/(?P<pk>(\d)+)', CarUpdateView.as_view()),
+    url(r'update/photographer/(?P<pk>(\d)+)', PhotographerUpdateView.as_view()),
+    url(r'update/band/(?P<pk>(\d)+)', BandUpdateView.as_view()),
+    url(r'update/wedding-rings/(?P<pk>(\d)+)', WeddingRingsUpdateView.as_view()),
+    url(r'update/alcohol-beverages/(?P<pk>(\d)+)', AlcoholBeveragesUpdateView.as_view()),
+    url(r'update/non-alcohol-beverages/(?P<pk>(\d)+)', NonAlcoholBeveragesUpdateView.as_view()),
+    url(r'update/church/(?P<pk>(\d)+)', ChurchUpdateView.as_view()),
+    url(r'update/other/(?P<pk>(\d)+)', OtherUpdateView.as_view()),
+
+
 
 
     url(r'^signup/$', signup, name='signup'),

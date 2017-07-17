@@ -4,70 +4,140 @@
 
 {%block content%}
 
-{%if wedding != "NO-WEDDING"%}
-    <div class="row">
-        <div class="col-lg-12">
-            <h3 style="text-align: center;">Wedding</h3>
-            <a href="/wedding/"><img class="img-rounded shake-little" width="950" height="300" src="{% static "img/curr-wedding.jpg" %}" alt="Wedding"></a>
-        </div>
-    </div>
 
+    {%if wedding == "NO-WEDDING"%}
     <div class="row">
-        <div class="col-lg-4">
-            <h3>Wedding Hall</h3>
-            <a href="/create/wedding-hall/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/wedding-hall.jpg" %}" alt="Wedding Hall"></a>
+        <div class="col-lg2">
         </div>
-        <div class="col-lg-4">
-            <h3>Car</h3>
-            <a href="/create/car/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/car.jpg" %}" alt="Car"></a>
+        <div class="col-lg-8">
+            <h3 style="text-align: right;">Create new Wedding</h3>
+            <a href="/create/wedding/"><img class="img-rounded shake-little" width="900" height="300" src="{% static "img/new-wedding.jpg" %}" alt="New Wedding"></a>
         </div>
-        <div class="col-lg-4">
-            <h3>Photographer</h3>
-            <a href="/create/photographer/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/photographer.jpg" %}" alt="Photographer"></a>
+        <div class="col-lg-2">
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <h3>Band</h3>
-            <a href="/create/band/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/band.jpg" %}" alt="Band"></a>
+    {%else%}
+    
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 style="text-align: center;">Wedding</h3>
+                <a href="/wedding/"><img class="img-rounded shake-little" width="950" height="300" src="{% static "img/curr-wedding.jpg" %}" alt="Wedding"></a>
+            </div>
         </div>
-        <div class="col-lg-4">
-            <h3>Wedding Rings</h3>
-            <a href="/create/wedding-rings/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/wedding-rings.jpg" %}" alt="Wedding Rings"></a>
-        </div>
-        <div class="col-lg-4">
-            <h3>Alcohol Beverages</h3>
-            <a href="/create/alcohol-beverages/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/alcohol-beverages.jpg" %}" alt="Alcohol Beverages"></a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <h3>Non Alcohol Beverages</h3>
-            <a href="/create/non-alcohol-beverages/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/non-alcohol-beverages.png" %}" alt="Non Alcohol Beverages"></a>
-        </div>
-        <div class="col-lg-4">
-            <h3>Church</h3>
-            <a href="/create/church/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/church.jpg" %}" alt="Church"></a>
-        </div>
-        <div class="col-lg-4">
-            <h3>Other</h3>
-            <a href="/create/other/"><img class="img-rounded shake-little" width="300" height="300" src="{% static "img/other.jpg" %}" alt="Other"></a>
-        </div>
-    </div>
-{%else%}
-<div class="row">
-    <div class="col-lg2">
-    </div>
-    <div class="col-lg-8">
-        <h3 style="text-align: right;">Create new Wedding</h3>
-        <a href="/create/wedding/"><img class="img-rounded shake-little" width="900" height="300" src="{% static "img/new-wedding.jpg" %}" alt="New Wedding"></a>
-    </div>
-    <div class="col-lg-2">
-    </div>
-</div>
-{%endif%}
+
+        <div class="row">
+            <div class="col-lg-4">
+                <h3>Wedding Hall</h3>
+                {%if weddingHall%}
+                <a href="/update/wedding-hall/{{weddingHall.pk}}">
+                {%else%}
+                <a href="/create/wedding-hall/">
+                {%endif%}
+                    <img class="img-rounded shake-little" width="300" height="300" src="{% static "img/wedding-hall.jpg" %}" alt="Wedding Hall">
+                </a>
+            </div>
 
 
+            <div class="col-lg-4">
+                <h3>Car</h3>
+                {%if car%}
+                <a href="/update/car/{{car.pk}}">
+                {%else%}
+                <a href="/create/car/">
+                {%endif%}
+                    <img class="img-rounded shake-little" width="300" height="300" src="{% static "img/car.jpg" %}" alt="Car">
+                </a>
+            </div>
+
+
+            <div class="col-lg-4">
+                <h3>Photographer</h3>
+                {%if photographer%}
+                <a href="/update/photographer/{{photographer.pk}}">
+                {%else%}
+                <a href="/create/photographer/">
+                {%endif%}
+                    <img class="img-rounded shake-little" width="300" height="300" src="{% static "img/photographer.jpg" %}" alt="Photographer">
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <h3>Band</h3>
+                {%if band%}
+                <a href="/update/band/{{band.pk}}">
+                {%else%}
+                <a href="/create/band/">
+                {%endif%}
+                    <img class="img-rounded shake-little" width="300" height="300" src="{% static "img/band.jpg" %}" alt="Band">
+                </a>
+            </div>
+
+
+            <div class="col-lg-4">
+                <h3>Wedding Rings</h3>
+                {%if weddingRings%}
+                <a href="/update/wedding-rings/{{weddingRings.pk}}">
+                {%else%}
+                <a href="/create/wedding-rings/">
+                {%endif%}
+                    <img class="img-rounded shake-little" width="300" height="300" src="{% static "img/wedding-rings.jpg" %}" alt="Wedding Rings">
+                </a>
+            </div>
+
+
+            <div class="col-lg-4">
+                <h3>Alcohol Beverages</h3>
+                {%if alcoholBeverages%}
+                <a href="/update/alcohol-beverages/{{alcoholBeverages.pk}}">
+                {%else%}
+                <a href="/create/alcohol-beverages/">
+                {%endif%}
+                    <img class="img-rounded shake-little" width="300" height="300" src="{% static "img/alcohol-beverages.jpg" %}" alt="Alcohol Beverages">
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <h3>Non Alcohol Beverages</h3>
+                {%if nonAlcoholBeverages%}
+                <a href="/update/non-alcohol-beverages/{{nonAlcoholBeverages.pk}}">
+                {%else%}
+                <a href="/create/non-alcohol-beverages/">
+                {%endif%}
+                    <img class="img-rounded shake-little" width="300" height="300" src="{% static "img/non-alcohol-beverages.png" %}" alt="Non Alcohol Beverages">
+                </a>
+            </div>
+
+
+            <div class="col-lg-4">
+                <h3>Church</h3>
+                {%if church%}
+                <a href="/update/church/{{church.pk}}">
+                {%else%}
+                <a href="/create/church/">
+                {%endif%}
+                    <img class="img-rounded shake-little" width="300" height="300" src="{% static "img/church.jpg" %}" alt="Church">
+                </a>
+            </div>
+
+
+            <div class="col-lg-4">
+                <h3>Other</h3>
+                {%if other%}
+                <a href="/update/other/{{other.pk}}">
+                {%else%}
+                <a href="/create/other/">
+                {%endif%}
+                    <img class="img-rounded shake-little" width="300" height="300" src="{% static "img/other.jpg" %}" alt="Other">
+                </a>
+            </div>
+        </div>
+    {%endif%}
 
 
 {%endblock%}
